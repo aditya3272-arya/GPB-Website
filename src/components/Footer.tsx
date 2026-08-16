@@ -14,11 +14,13 @@ import {
 interface FooterProps {
   onOpenAccountOpening: () => void;
   onOpenNetBanking: () => void;
+  onReplaySplash?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onOpenAccountOpening,
-  onOpenNetBanking
+  onOpenNetBanking,
+  onReplaySplash
 }) => {
   return (
     <footer className="bg-[#001D42] text-slate-300 border-t border-[#002D62] text-xs">
@@ -178,8 +180,19 @@ export const Footer: React.FC<FooterProps> = ({
       {/* Copyright Bar */}
       <div className="bg-[#001228] py-4 px-4 sm:px-8 border-t border-[#001D42] text-slate-400 text-[11px]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div>
-            © 2026 <strong className="text-slate-300">Gurukul PREMIER Bank</strong>. All Rights Reserved.
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <span>© 2026 <strong className="text-slate-300">Gurukul PREMIER Bank</strong>. All Rights Reserved.</span>
+            {onReplaySplash && (
+              <>
+                <span className="text-slate-600 hidden sm:inline">•</span>
+                <button
+                  onClick={onReplaySplash}
+                  className="text-[10px] text-slate-400 hover:text-[#DFB748] underline uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Replay Security Screen
+                </button>
+              </>
+            )}
           </div>
           <div className="text-xs font-bold tracking-widest text-[#DFB748] uppercase">
             Trust • Grow • Prosper

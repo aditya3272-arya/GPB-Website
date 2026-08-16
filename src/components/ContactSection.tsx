@@ -59,8 +59,8 @@ export const ContactSection: React.FC = () => {
                   <MapPin size={18} />
                 </div>
                 <div className="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">Branch Location</div>
-                <div className="text-sm font-bold text-[#002D62] mt-0.5">Banking Activity Hall</div>
-                <div className="text-xs text-slate-500 mt-1">Gurukul The School Campus</div>
+                <div className="text-sm font-bold text-[#002D62] mt-0.5">XI-C1 </div>
+                <div className="text-xs text-slate-500 mt-1">Senior Wing, Gurukul The School</div>
               </div>
 
               <div className="bg-slate-50 p-4 rounded-sm border border-slate-200 border-t-2 border-t-[#C5A059] shadow-2xs">

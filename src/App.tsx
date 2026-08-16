@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SplashScreen } from './components/SplashScreen';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TeamCarousel } from './components/TeamCarousel';
@@ -14,6 +15,7 @@ import { AccountOpeningModal } from './components/AccountOpeningModal';
 import { TeamMemberRole } from './types';
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [isNetBankingOpen, setIsNetBankingOpen] = useState(false);
   const [isAccountOpeningOpen, setIsAccountOpeningOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -64,6 +66,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A] font-sans antialiased">
+      {/* 0. Institutional Bank Security Splash Screen */}
+      {showSplash && (
+        <SplashScreen onComplete={() => setShowSplash(false)} />
+      )}
+
       {/* 1. Header & Navigation */}
       <Header
         activeSection={activeSection}
@@ -113,6 +120,7 @@ export default function App() {
       <Footer
         onOpenAccountOpening={() => setIsAccountOpeningOpen(true)}
         onOpenNetBanking={() => setIsNetBankingOpen(true)}
+        onReplaySplash={() => setShowSplash(true)}
       />
 
       {/* Interactive Modals */}
