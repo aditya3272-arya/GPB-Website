@@ -1,0 +1,7 @@
+{
+  "name": "Gurukul Premier Bank",
+  "description": "Official institutional banking portal for Gurukul Premier Bank, featuring banking services, team directory, and financial solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
