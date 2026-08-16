@@ -4,10 +4,7 @@ import { TeamMemberRole } from '../types';
 import { 
   MapPin, 
   CheckCircle, 
-  ChevronRight, 
-  Play,
-  Pause,
-  Layers
+  ChevronRight
 } from 'lucide-react';
 
 interface TeamCarouselProps {
@@ -16,29 +13,14 @@ interface TeamCarouselProps {
 
 export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
   const [selectedRole, setSelectedRole] = useState<TeamMemberRole | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [speed, setSpeed] = useState<'normal' | 'slow' | 'fast'>('normal');
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
-  const [filterDesk, setFilterDesk] = useState<number | 'all'>('all');
 
   const handleImageError = (roleId: string) => {
     setFailedImages((prev) => ({ ...prev, [roleId]: true }));
   };
 
-  // Speed duration mapping for smooth linear conveyor belt
-  const speedDuration = {
-    slow: '75s',
-    normal: '48s',
-    fast: '30s'
-  }[speed];
-
-  // Filter roles if filtered by desk, otherwise display all
-  const filteredRoles = filterDesk === 'all' 
-    ? BANKING_ROLES 
-    : BANKING_ROLES.filter((r) => r.deskId === filterDesk);
-
   // Duplicate the array 3 times for seamless linear infinite marquee
-  const duplicatedRoles = [...filteredRoles, ...filteredRoles, ...filteredRoles];
+  const duplicatedRoles = [...BANKING_ROLES, ...BANKING_ROLES, ...BANKING_ROLES];
 
   return (
     <section id="team" className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200 overflow-hidden">
@@ -60,64 +42,6 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
               Meet the 19 appointed student officers managing 10 operational counters across customer care, insurance, cash clearing, loans, and investment advisory.
             </p>
           </div>
-
-          {/* Carousel Control Toolbar */}
-          <div className="flex flex-wrap items-center gap-2 self-start md:self-end">
-            {/* Pause/Play toggle */}
-            <button
-              onClick={() => setIsPaused(!isPaused)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 rounded-sm transition-colors shadow-2xs uppercase tracking-wider cursor-pointer"
-              title={isPaused ? 'Resume conveyor belt' : 'Pause conveyor belt'}
-            >
-              {isPaused ? <Play size={13} className="text-emerald-600" /> : <Pause size={13} className="text-slate-600" />}
-              <span>{isPaused ? 'Resume' : 'Pause'}</span>
-            </button>
-
-            {/* Speed Selector */}
-            <div className="flex items-center bg-white border border-slate-300 rounded-sm p-0.5 text-xs font-bold text-slate-600 shadow-2xs">
-              <button
-                onClick={() => setSpeed('slow')}
-                className={`px-2 py-1 rounded-2xs transition-colors uppercase tracking-wider cursor-pointer ${speed === 'slow' ? 'bg-[#002D62] text-white font-extrabold' : 'hover:text-[#002D62]'}`}
-              >
-                Slow
-              </button>
-              <button
-                onClick={() => setSpeed('normal')}
-                className={`px-2 py-1 rounded-2xs transition-colors uppercase tracking-wider cursor-pointer ${speed === 'normal' ? 'bg-[#002D62] text-white font-extrabold' : 'hover:text-[#002D62]'}`}
-              >
-                Normal
-              </button>
-              <button
-                onClick={() => setSpeed('fast')}
-                className={`px-2 py-1 rounded-2xs transition-colors uppercase tracking-wider cursor-pointer ${speed === 'fast' ? 'bg-[#002D62] text-white font-extrabold' : 'hover:text-[#002D62]'}`}
-              >
-                Fast
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Desk Quick Filter Pills */}
-        <div className="flex items-center gap-1.5 mt-6 overflow-x-auto pb-2 scrollbar-thin text-xs">
-          <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mr-1 flex items-center gap-1 shrink-0">
-            <Layers size={13} />
-            Filter Desk:
-          </span>
-          <button
-            onClick={() => setFilterDesk('all')}
-            className={`px-2.5 py-1 rounded-sm font-bold uppercase tracking-wider transition-colors shrink-0 cursor-pointer ${filterDesk === 'all' ? 'bg-[#002D62] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}`}
-          >
-            All Desks (19)
-          </button>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-            <button
-              key={num}
-              onClick={() => setFilterDesk(num)}
-              className={`px-2.5 py-1 rounded-sm font-bold uppercase tracking-wider transition-colors shrink-0 cursor-pointer ${filterDesk === num ? 'bg-[#002D62] text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}`}
-            >
-              Desk {num < 10 ? `0${num}` : num}
-            </button>
-          ))}
         </div>
       </div>
 
@@ -133,8 +57,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
         <div
           className="animate-marquee-ltr"
           style={{
-            animationDuration: speedDuration,
-            animationPlayState: isPaused ? 'paused' : undefined
+            animationDuration: '52s'
           }}
         >
           {duplicatedRoles.map((item, index) => {

@@ -9,7 +9,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Front Desk & Customer Care',
     deskNumber: 'Desk 01',
     deskId: 1,
-    photoUrl: '/team/desk1-rishita-samtani.jpg',
+    photoUrl: '/team/desk1-rishita-samtani.JPG',
     fallbackInitials: 'RS',
     description: 'Primary customer touchpoint for account enquiries, statement duplicates, grievance redressal, and front-counter guidance.',
     keyResponsibilities: [
@@ -25,7 +25,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Front Desk & Customer Care',
     deskNumber: 'Desk 01',
     deskId: 1,
-    photoUrl: '/team/desk1-shiveksha-gaur.jpg',
+    photoUrl: '/team/desk1-shiveksha-gaur.JPG',
     fallbackInitials: 'SG',
     description: 'Provides proactive assistance with banking forms, service requests, token queues, and dispute resolution.',
     keyResponsibilities: [
@@ -43,7 +43,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Risk & Protection Group',
     deskNumber: 'Desk 02',
     deskId: 2,
-    photoUrl: '/team/desk2-khushi-premchandani.jpg',
+    photoUrl: '/team/desk2-khushi-premchandani.JPG',
     fallbackInitials: 'KP',
     description: 'Oversees student protection policy administration, coverage appraisals, insurance vouchers, and claim settlement registers.',
     keyResponsibilities: [
@@ -59,7 +59,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Risk & Protection Group',
     deskNumber: 'Desk 02',
     deskId: 2,
-    photoUrl: '/team/desk2-kshirin-maitray.jpg',
+    photoUrl: '/team/desk2-kshirin-maitray.JPG',
     fallbackInitials: 'KM',
     description: 'Assists customers in choosing suitable protection plans with transparent premium schedules and maturity returns.',
     keyResponsibilities: [
@@ -77,7 +77,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Onboarding & Compliance',
     deskNumber: 'Desk 03',
     deskId: 3,
-    photoUrl: '/team/desk3-keshav-gera.jpg',
+    photoUrl: '/team/desk3-keshav-gera.JPG',
     fallbackInitials: 'KG',
     description: 'Handles new customer onboarding, student ID/Aadhaar scrutiny, and allotment of 12-digit Premier Account Numbers.',
     keyResponsibilities: [
@@ -93,7 +93,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Onboarding & Compliance',
     deskNumber: 'Desk 03',
     deskId: 3,
-    photoUrl: '/team/desk3-achintya-tyagi.jpg',
+    photoUrl: '/team/desk3-achintya-tyagi.JPG',
     fallbackInitials: 'AT',
     description: 'Executes specimen signature indexing, issues passbook starter kits, and manages digital KYC verification.',
     keyResponsibilities: [
@@ -111,7 +111,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Cash Management & Vault',
     deskNumber: 'Desk 04',
     deskId: 4,
-    photoUrl: '/team/desk4-shaurya-bhushan.jpg',
+    photoUrl: '/team/desk4-shaurya-bhushan.JPG',
     fallbackInitials: 'SB',
     description: 'Manages counter cash receipts, currency denomination counting, verified pay-in slips, and authorized receipt stamping.',
     keyResponsibilities: [
@@ -127,7 +127,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Cash Management & Vault',
     deskNumber: 'Desk 04',
     deskId: 4,
-    photoUrl: '/team/desk4-ram-gautam.jpg',
+    photoUrl: '/team/desk4-ram-gautam.JPG',
     fallbackInitials: 'RG',
     description: 'Executes verified cash withdrawals against signed withdrawal vouchers and performs end-of-day vault ledger reconciliation.',
     keyResponsibilities: [
@@ -145,7 +145,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Clearing & Instrument Operations',
     deskNumber: 'Desk 05',
     deskId: 5,
-    photoUrl: '/team/desk5-vani-jain.jpg',
+    photoUrl: '/team/desk5-vani-jain.JPG',
     fallbackInitials: 'VJ',
     description: 'Scrutinizes submitted cheques, verifies maker-checker signatures against KYC records, and manages clearing entries.',
     keyResponsibilities: [
@@ -161,7 +161,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Clearing & Instrument Operations',
     deskNumber: 'Desk 05',
     deskId: 5,
-    photoUrl: '/team/desk5-yatharth-tayal.jpg',
+    photoUrl: '/team/desk5-yatharth-tayal.JPG',
     fallbackInitials: 'YT',
     description: 'Requisitions personalized cheque books, maintains CTS registers, and processes stop-payment mandates.',
     keyResponsibilities: [
@@ -179,7 +179,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Term Deposits & Records Management',
     deskNumber: 'Desk 06',
     deskId: 6,
-    photoUrl: '/team/desk6-daivik-garg.jpg',
+    photoUrl: '/team/desk6-daivik-garg.JPG',
     fallbackInitials: 'DG',
     description: 'Executes Fixed Deposit (FD) and Recurring Deposit (RD) certificates, locks interest rates, and oversees maturity schedules.',
     keyResponsibilities: [
@@ -195,7 +195,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Term Deposits & Records Management',
     deskNumber: 'Desk 06',
     deskId: 6,
-    photoUrl: '/team/desk6-vansh-gupta.jpg',
+    photoUrl: '/team/desk6-vansh-gupta.JPG',
     fallbackInitials: 'VG',
     description: 'Manages physical and digital banking archives, audit registers, deposit master records, and compliance files.',
     keyResponsibilities: [
@@ -213,7 +213,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Wealth Management & Financial Literacy',
     deskNumber: 'Desk 07',
     deskId: 7,
-    photoUrl: '/team/desk7-muskan-kaur-batra.jpg',
+    photoUrl: '/team/desk7-muskan-kaur-batra.JPG',
     fallbackInitials: 'MB',
     description: 'Provides structured financial advice on savings goals, compound growth instruments, and systematic budgeting strategies.',
     keyResponsibilities: [
@@ -247,7 +247,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Credit Assessment & Disbursals',
     deskNumber: 'Desk 08',
     deskId: 8,
-    photoUrl: '/team/desk8-kanishk-sharma.jpg',
+    photoUrl: '/team/desk8-kanishk-sharma.JPG',
     fallbackInitials: 'KS',
     description: 'Appraises student project and activity loan applications, reviews repayment capability, and sanctions credit facilities.',
     keyResponsibilities: [
@@ -263,7 +263,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Credit Assessment & Disbursals',
     deskNumber: 'Desk 08',
     deskId: 8,
-    photoUrl: '/team/desk8-naina-sachdeva.jpg',
+    photoUrl: '/team/desk8-naina-sachdeva.JPG',
     fallbackInitials: 'NS',
     description: 'Prepares transparent monthly EMI repayment schedules, manages applicant documentation, and tracks loan accounts.',
     keyResponsibilities: [
@@ -281,7 +281,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Risk Management & Underwriting',
     deskNumber: 'Desk 09',
     deskId: 9,
-    photoUrl: '/team/desk9-manas-arya.jpg',
+    photoUrl: '/team/desk9-manas-arya.JPG',
     fallbackInitials: 'MA',
     description: 'Assesses creditworthiness, calculates internal credit scorecards, and audits borrower repayment integrity.',
     keyResponsibilities: [
@@ -315,7 +315,7 @@ export const BANKING_ROLES: TeamMemberRole[] = [
     department: 'Strategic Growth & Partnerships',
     deskNumber: 'Desk 10',
     deskId: 10,
-    photoUrl: '/team/desk10-vikrant-bhardwaj.jpg',
+    photoUrl: '/team/desk10-vikrant-bhardwaj.JPG',
     fallbackInitials: 'VB',
     description: 'Leads institutional banking outreach, coordinates cross-desk initiatives, organizes financial literacy campaigns, and drives account growth.',
     keyResponsibilities: [
