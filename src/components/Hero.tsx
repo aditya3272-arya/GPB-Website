@@ -1,15 +1,12 @@
 import React from 'react';
 import { 
-  ShieldCheck, 
   TrendingUp, 
-  Users, 
-  Award, 
   ArrowRight, 
   CheckCircle2, 
-  CreditCard, 
-  Calculator,
+  Wallet,
   Landmark,
-  FileCheck2
+  BadgePercent,
+  Calculator
 } from 'lucide-react';
 import { BankLogo } from './BankLogo';
 
@@ -83,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 onClick={onOpenAccountOpening}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-extrabold text-white bg-[#002D62] hover:bg-[#0A3B75] rounded-sm transition-all shadow-banking hover:shadow-lg border border-[#001a3a] active:scale-[0.98] uppercase tracking-wider"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-extrabold text-white bg-[#002D62] hover:bg-[#0A3B75] rounded-sm transition-all shadow-banking hover:shadow-lg border border-[#001a3a] active:scale-[0.98] uppercase tracking-wider cursor-pointer"
               >
                 <span>Open an Account</span>
                 <ArrowRight size={16} className="text-[#DFB748]" />
@@ -91,14 +88,14 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreServices}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold text-[#002D62] bg-white hover:bg-slate-50 rounded-sm transition-all border border-slate-300 shadow-2xs uppercase tracking-wider"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold text-[#002D62] bg-white hover:bg-slate-50 rounded-sm transition-all border border-slate-300 shadow-2xs uppercase tracking-wider cursor-pointer"
               >
                 <span>Explore Services</span>
               </button>
 
               <button
                 onClick={onOpenCalculator}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-bold text-slate-600 hover:text-[#002D62] transition-colors uppercase tracking-wider"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-bold text-slate-600 hover:text-[#002D62] transition-colors uppercase tracking-wider cursor-pointer"
               >
                 <Calculator size={15} className="text-[#C5A059]" />
                 <span>Interest Calculator</span>
@@ -122,7 +119,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Realistic Corporate Banking Presentation Card */}
+          {/* Right Column: Premium Banking Services Showcase Card */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md">
               {/* Decorative institutional backing card */}
@@ -133,13 +130,13 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Card Top Banner with Seal */}
                 <div className="bg-[#002D62] p-5 text-white flex items-center justify-between border-b border-[#C5A059]/40">
                   <div className="flex items-center gap-3">
-                    <BankLogo size={42} showText={false} />
+                    <BankLogo size={40} showText={false} />
                     <div>
                       <div className="text-xs font-bold uppercase tracking-wider text-slate-100">
-                        Gurukul PREMIER Bank
+                        GURUKUL PREMIER BANK
                       </div>
                       <div className="text-[10px] text-[#DFB748] font-bold tracking-widest uppercase mt-0.5">
-                        Premier Debit & Banking Pass
+                        PREMIER BANKING SERVICES
                       </div>
                     </div>
                   </div>
@@ -153,75 +150,82 @@ export const Hero: React.FC<HeroProps> = ({
 
                 {/* Card Interior Details */}
                 <div className="p-5 space-y-4">
-                  {/* Account Highlights */}
-                  <div className="bg-slate-50 rounded-sm p-3.5 border border-slate-200 flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider">
-                        Default Student Account
+                  {/* Introductory Panel */}
+                  <div className="bg-slate-50 rounded-sm p-3.5 border border-slate-200">
+                    <div className="text-[10px] uppercase font-extrabold text-[#C5A059] tracking-wider mb-0.5">
+                      BANKING SERVICES
+                    </div>
+                    <div className="text-sm font-extrabold text-[#002D62]">
+                      Solutions Designed Around You
+                    </div>
+                    <p className="text-xs text-slate-600 font-normal leading-relaxed mt-1">
+                      Explore our essential banking services, designed to make everyday banking simple, reliable, and convenient.
+                    </p>
+                  </div>
+
+                  {/* 2x2 Service Grid */}
+                  <div className="grid grid-cols-2 gap-2.5 text-xs">
+                    {/* Service 1 */}
+                    <div className="p-3 rounded-sm border border-slate-200 bg-white hover:border-[#002D62]/40 transition-colors">
+                      <div className="w-7 h-7 rounded-sm bg-[#002D62]/5 border border-[#002D62]/10 flex items-center justify-center mb-2">
+                        <Wallet size={15} className="text-[#C5A059]" />
                       </div>
-                      <div className="text-sm font-bold text-[#002D62]">
-                        Premier Student Privilege
+                      <div className="font-extrabold text-slate-900 text-xs">
+                        Accounts
+                      </div>
+                      <div className="text-[10.5px] text-slate-500 mt-0.5 font-medium">
+                        Savings • Current • Student
                       </div>
                     </div>
-                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200 uppercase tracking-tight">
-                      Active Status
+
+                    {/* Service 2 */}
+                    <div className="p-3 rounded-sm border border-slate-200 bg-white hover:border-[#002D62]/40 transition-colors">
+                      <div className="w-7 h-7 rounded-sm bg-[#002D62]/5 border border-[#002D62]/10 flex items-center justify-center mb-2">
+                        <Landmark size={15} className="text-[#C5A059]" />
+                      </div>
+                      <div className="font-extrabold text-slate-900 text-xs">
+                        Deposits
+                      </div>
+                      <div className="text-[10.5px] text-slate-500 mt-0.5 font-medium">
+                        Fixed • Recurring
+                      </div>
+                    </div>
+
+                    {/* Service 3 */}
+                    <div className="p-3 rounded-sm border border-slate-200 bg-white hover:border-[#002D62]/40 transition-colors">
+                      <div className="w-7 h-7 rounded-sm bg-[#002D62]/5 border border-[#002D62]/10 flex items-center justify-center mb-2">
+                        <BadgePercent size={15} className="text-[#C5A059]" />
+                      </div>
+                      <div className="font-extrabold text-slate-900 text-xs">
+                        Loans & Credit
+                      </div>
+                      <div className="text-[10.5px] text-slate-500 mt-0.5 font-medium">
+                        Flexible Financial Solutions
+                      </div>
+                    </div>
+
+                    {/* Service 4 */}
+                    <div className="p-3 rounded-sm border border-slate-200 bg-white hover:border-[#002D62]/40 transition-colors">
+                      <div className="w-7 h-7 rounded-sm bg-[#002D62]/5 border border-[#002D62]/10 flex items-center justify-center mb-2">
+                        <TrendingUp size={15} className="text-[#C5A059]" />
+                      </div>
+                      <div className="font-extrabold text-slate-900 text-xs">
+                        Investments
+                      </div>
+                      <div className="text-[10.5px] text-slate-500 mt-0.5 font-medium">
+                        Plan • Grow • Secure
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Clean Institutional Bottom Strip */}
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-slate-600">
+                      Trusted Banking • Professional Service
                     </span>
-                  </div>
-
-                  {/* 4 Fast Service Shortcuts */}
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <button 
-                      onClick={onOpenAccountOpening}
-                      className="p-2.5 rounded-sm border border-slate-200 hover:border-[#002D62] hover:bg-slate-50 transition-colors text-left group"
-                    >
-                      <div className="font-bold text-slate-800 flex items-center gap-1.5">
-                        <FileCheck2 size={14} className="text-[#C5A059]" />
-                        <span>Instant KYC</span>
-                      </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-medium">At Desk 04 Counter</div>
-                    </button>
-
-                    <button 
-                      onClick={onOpenNetBanking}
-                      className="p-2.5 rounded-sm border border-slate-200 hover:border-[#002D62] hover:bg-slate-50 transition-colors text-left group"
-                    >
-                      <div className="font-bold text-slate-800 flex items-center gap-1.5">
-                        <CreditCard size={14} className="text-[#C5A059]" />
-                        <span>Passbook View</span>
-                      </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-medium">Check Live Balance</div>
-                    </button>
-
-                    <button 
-                      onClick={onExploreServices}
-                      className="p-2.5 rounded-sm border border-slate-200 hover:border-[#002D62] hover:bg-slate-50 transition-colors text-left group"
-                    >
-                      <div className="font-bold text-slate-800 flex items-center gap-1.5">
-                        <Landmark size={14} className="text-[#C5A059]" />
-                        <span>Term Deposit</span>
-                      </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-medium">Desk 07 High Yield</div>
-                    </button>
-
-                    <button 
-                      onClick={onOpenCalculator}
-                      className="p-2.5 rounded-sm border border-slate-200 hover:border-[#002D62] hover:bg-slate-50 transition-colors text-left group"
-                    >
-                      <div className="font-bold text-slate-800 flex items-center gap-1.5">
-                        <Calculator size={14} className="text-[#C5A059]" />
-                        <span>EMI Estimator</span>
-                      </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-medium">Calculate Repayment</div>
-                    </button>
-                  </div>
-
-                  {/* Security Assurance Footer */}
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                    <div className="flex items-center gap-1.5 font-semibold text-slate-700">
-                      <ShieldCheck size={14} className="text-emerald-600" />
-                      <span>Authorized Dual Signatory</span>
-                    </div>
-                    <span className="font-mono text-slate-400 text-[10px]">ISO: GPB-2026</span>
+                    <span className="font-extrabold text-[#C5A059] text-[10px] tracking-wider">
+                      EST. 2026
+                    </span>
                   </div>
                 </div>
               </div>
