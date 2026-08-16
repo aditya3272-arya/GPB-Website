@@ -1,14 +1,14 @@
 export interface TeamMemberRole {
   id: string;
+  name: string;
   role: string;
-  namePlaceholder: string;
-  photoPlaceholder: string;
   department: string;
   deskNumber: string;
+  deskId: number;
+  photoUrl?: string;
+  fallbackInitials?: string;
   description: string;
   keyResponsibilities: string[];
-  customName?: string;
-  customPhoto?: string;
 }
 
 export interface BankingService {

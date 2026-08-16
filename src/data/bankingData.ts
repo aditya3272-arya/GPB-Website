@@ -1,144 +1,327 @@
 import { TeamMemberRole, BankingService, TrustPillar, FAQItem, NoticeItem } from '../types';
 
 export const BANKING_ROLES: TeamMemberRole[] = [
+  // Desk 1 - Customer Service Executives (2)
   {
-    id: 'role-1',
-    role: 'Insurance',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
-    department: 'Risk & Protection Group',
-    deskNumber: 'Desk 01',
-    description: 'Oversees student life and health insurance policy records, coverage evaluations, and premium settlement vouchers.',
-    keyResponsibilities: [
-      'Evaluate comprehensive student protection plans',
-      'Maintain insurance ledger & policy registrations',
-      'Process policy documentation and claim vouchers'
-    ]
-  },
-  {
-    id: 'role-2',
+    id: 'desk-1-rishita',
+    name: 'Rishita Samtani',
     role: 'Customer Service Executive',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
-    department: 'Front Desk & Branch Help',
+    department: 'Front Desk & Customer Care',
+    deskNumber: 'Desk 01',
+    deskId: 1,
+    photoUrl: '/team/desk1-rishita-samtani.jpg',
+    fallbackInitials: 'RS',
+    description: 'Primary customer touchpoint for account enquiries, statement duplicates, grievance redressal, and front-counter guidance.',
+    keyResponsibilities: [
+      'Attend to daily banking counter enquiries and visitor guidance',
+      'Issue physical passbook transaction updates and statement reprints',
+      'Direct accountholders to appropriate operational counters'
+    ]
+  },
+  {
+    id: 'desk-1-shiveksha',
+    name: 'Shiveksha Gaur',
+    role: 'Customer Service Executive',
+    department: 'Front Desk & Customer Care',
+    deskNumber: 'Desk 01',
+    deskId: 1,
+    photoUrl: '/team/desk1-shiveksha-gaur.jpg',
+    fallbackInitials: 'SG',
+    description: 'Provides proactive assistance with banking forms, service requests, token queues, and dispute resolution.',
+    keyResponsibilities: [
+      'Assist accountholders with pay-in slip and requisition completions',
+      'Log customer service feedback and grievance registers',
+      'Manage front-desk customer flow and counter coordination'
+    ]
+  },
+
+  // Desk 2 - Insurance Manager & Insurance Sales Executive
+  {
+    id: 'desk-2-khushi',
+    name: 'Khushi Premchandani',
+    role: 'Insurance Manager',
+    department: 'Risk & Protection Group',
     deskNumber: 'Desk 02',
-    description: 'Primary customer touchpoint for account enquiries, statement issuance, grievance resolution, and general banking guidance.',
+    deskId: 2,
+    photoUrl: '/team/desk2-khushi-premchandani.jpg',
+    fallbackInitials: 'KP',
+    description: 'Oversees student protection policy administration, coverage appraisals, insurance vouchers, and claim settlement registers.',
     keyResponsibilities: [
-      'Attend to daily banking counter enquiries',
-      'Issue physical passbook transaction updates',
-      'Direct visitors to appropriate banking desks'
+      'Evaluate comprehensive student activity and health protection plans',
+      'Maintain policy master registers and authorized premium vouchers',
+      'Supervise claim scrutinies and insurance clearance certificates'
     ]
   },
   {
-    id: 'role-3',
+    id: 'desk-2-kshirin',
+    name: 'Kshirin Maitray',
     role: 'Insurance Sales Executive',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
-    department: 'Client Advisory & Solutions',
-    deskNumber: 'Desk 03',
-    description: 'Assists customers in identifying suitable life, health, and asset insurance plans with tailored premium structures.',
+    department: 'Risk & Protection Group',
+    deskNumber: 'Desk 02',
+    deskId: 2,
+    photoUrl: '/team/desk2-kshirin-maitray.jpg',
+    fallbackInitials: 'KM',
+    description: 'Assists customers in choosing suitable protection plans with transparent premium schedules and maturity returns.',
     keyResponsibilities: [
-      'Present custom insurance options to accountholders',
-      'Explain terms, policy tenure, and maturity returns',
-      'Assist applicants with proposal form completions'
+      'Present custom insurance options tailored to student needs',
+      'Explain policy terms, coverage tenures, and benefits',
+      'Assist applicants with proposal forms and premium setup'
     ]
   },
+
+  // Desk 3 - Account Opening & KYC Officers (2)
   {
-    id: 'role-4',
-    role: 'Account Opening & KYC',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
+    id: 'desk-3-keshav',
+    name: 'Keshav Gera',
+    role: 'Account Opening & KYC Officer',
     department: 'Onboarding & Compliance',
-    deskNumber: 'Desk 04',
-    description: 'Handles new customer onboarding, Aadhaar/ID identity verification, signature card creation, and account generation.',
+    deskNumber: 'Desk 03',
+    deskId: 3,
+    photoUrl: '/team/desk3-keshav-gera.jpg',
+    fallbackInitials: 'KG',
+    description: 'Handles new customer onboarding, student ID/Aadhaar scrutiny, and allotment of 12-digit Premier Account Numbers.',
     keyResponsibilities: [
-      'Scrutinize student KYC identification documents',
-      'Issue account numbers & starter kits',
-      'Maintain specimen signature records'
+      'Scrutinize student KYC identification documents and eligibility',
+      'Allot official 12-digit Premier Account Numbers',
+      'Maintain compliant onboarding logs and account master files'
     ]
   },
   {
-    id: 'role-5',
+    id: 'desk-3-achintya',
+    name: 'Achintya Tyagi',
+    role: 'Account Opening & KYC Officer',
+    department: 'Onboarding & Compliance',
+    deskNumber: 'Desk 03',
+    deskId: 3,
+    photoUrl: '/team/desk3-achintya-tyagi.jpg',
+    fallbackInitials: 'AT',
+    description: 'Executes specimen signature indexing, issues passbook starter kits, and manages digital KYC verification.',
+    keyResponsibilities: [
+      'Capture and record specimen signature specimen cards',
+      'Issue official starter kits, passbooks, and NetBanking PINs',
+      'Validate multi-signatory permissions for club accounts'
+    ]
+  },
+
+  // Desk 4 - Cashiers (2)
+  {
+    id: 'desk-4-shaurya',
+    name: 'Shaurya Bhushan',
     role: 'Cashier',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
     department: 'Cash Management & Vault',
-    deskNumber: 'Desk 05',
-    description: 'Manages physical cash receipts, currency counting, token disbursement, withdrawal pay-in slips, and end-of-day balance balancing.',
+    deskNumber: 'Desk 04',
+    deskId: 4,
+    photoUrl: '/team/desk4-shaurya-bhushan.jpg',
+    fallbackInitials: 'SB',
+    description: 'Manages counter cash receipts, currency denomination counting, verified pay-in slips, and authorized receipt stamping.',
     keyResponsibilities: [
       'Accept cash deposits with verified pay-in slips',
-      'Disburse cash withdrawals against signed vouchers',
-      'Daily ledger reconciliation and cash book balancing'
+      'Count and authenticate currency notes and denominations',
+      'Provide duplicate stamped receipt vouchers to depositors'
     ]
   },
   {
-    id: 'role-6',
+    id: 'desk-4-ram',
+    name: 'Ram Gautam',
+    role: 'Cashier',
+    department: 'Cash Management & Vault',
+    deskNumber: 'Desk 04',
+    deskId: 4,
+    photoUrl: '/team/desk4-ram-gautam.jpg',
+    fallbackInitials: 'RG',
+    description: 'Executes verified cash withdrawals against signed withdrawal vouchers and performs end-of-day vault ledger reconciliation.',
+    keyResponsibilities: [
+      'Disburse cash withdrawals against authorized signed vouchers',
+      'Reconcile cash drawer balances with daily transaction logs',
+      'Perform closing vault audits and cash summary reporting'
+    ]
+  },
+
+  // Desk 5 - Verification & Cheque Book Officers (2)
+  {
+    id: 'desk-5-vani',
+    name: 'Vani Jain',
     role: 'Verification & Cheque Book Officer',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
     department: 'Clearing & Instrument Operations',
-    deskNumber: 'Desk 06',
-    description: 'Scrutinizes submitted cheques, verifies maker-checker signatures, processes clearing entries, and dispatches fresh cheque books.',
+    deskNumber: 'Desk 05',
+    deskId: 5,
+    photoUrl: '/team/desk5-vani-jain.jpg',
+    fallbackInitials: 'VJ',
+    description: 'Scrutinizes submitted cheques, verifies maker-checker signatures against KYC records, and manages clearing entries.',
     keyResponsibilities: [
-      'Authenticate cheque leaf signatures against KYC records',
-      'Log CTS (Cheque Truncation) clearing entries',
-      'Issue personalized cheque book requisitions'
+      'Authenticate cheque signatures against KYC specimen records',
+      'Validate instrument dates, amounts in words & figures, and endorsements',
+      'Authorize cheque clearing credits into payee ledgers'
     ]
   },
   {
-    id: 'role-7',
-    role: 'Deposit & Documentation Officer',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
+    id: 'desk-5-yatharth',
+    name: 'Yatharth Tayal',
+    role: 'Verification & Cheque Book Officer',
+    department: 'Clearing & Instrument Operations',
+    deskNumber: 'Desk 05',
+    deskId: 5,
+    photoUrl: '/team/desk5-yatharth-tayal.jpg',
+    fallbackInitials: 'YT',
+    description: 'Requisitions personalized cheque books, maintains CTS registers, and processes stop-payment mandates.',
+    keyResponsibilities: [
+      'Issue and dispatch personalized 10-leaf student cheque books',
+      'Maintain CTS (Cheque Truncation) tracking registers',
+      'Process cheque cancellation and stop-payment requisitions'
+    ]
+  },
+
+  // Desk 6 - Deposit Manager & Documentation Officer
+  {
+    id: 'desk-6-daivik',
+    name: 'Daivik Garg',
+    role: 'Deposit Manager',
     department: 'Term Deposits & Records Management',
-    deskNumber: 'Desk 07',
-    description: 'Executes Fixed Deposit (FD) and Recurring Deposit (RD) certificates, tracks maturity schedules, and archives master registers.',
+    deskNumber: 'Desk 06',
+    deskId: 6,
+    photoUrl: '/team/desk6-daivik-garg.jpg',
+    fallbackInitials: 'DG',
+    description: 'Executes Fixed Deposit (FD) and Recurring Deposit (RD) certificates, locks interest rates, and oversees maturity schedules.',
     keyResponsibilities: [
-      'Issue official term deposit certificates with rate lock',
-      'Process monthly recurring deposit schedules',
-      'Manage physical and digital documentation archives'
+      'Issue official term deposit certificates with locked annual yields',
+      'Calculate quarterly compounding interest credits',
+      'Authorize premature withdrawals and maturity reinvestment'
     ]
   },
   {
-    id: 'role-8',
+    id: 'desk-6-vansh',
+    name: 'Vansh Gupta',
+    role: 'Documentation Officer',
+    department: 'Term Deposits & Records Management',
+    deskNumber: 'Desk 06',
+    deskId: 6,
+    photoUrl: '/team/desk6-vansh-gupta.jpg',
+    fallbackInitials: 'VG',
+    description: 'Manages physical and digital banking archives, audit registers, deposit master records, and compliance files.',
+    keyResponsibilities: [
+      'Maintain archival registers of all deposit bonds and certificates',
+      'Audit documentary compliance on open customer accounts',
+      'Coordinate physical file preservation and regulatory audits'
+    ]
+  },
+
+  // Desk 7 - Investment Advisors (2)
+  {
+    id: 'desk-7-muskan',
+    name: 'Muskan Kaur Batra',
     role: 'Investment Advisor',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
     department: 'Wealth Management & Financial Literacy',
-    deskNumber: 'Desk 08',
+    deskNumber: 'Desk 07',
+    deskId: 7,
+    photoUrl: '/team/desk7-muskan-kaur-batra.jpg',
+    fallbackInitials: 'MB',
     description: 'Provides structured financial advice on savings goals, compound growth instruments, and systematic budgeting strategies.',
     keyResponsibilities: [
       'Analyze student financial goals & savings horizons',
-      'Recommend diversified interest-bearing options',
-      'Conduct financial literacy consultations'
+      'Recommend diversified interest-bearing growth options',
+      'Conduct financial literacy consultations and workshops'
     ]
   },
   {
-    id: 'role-9',
-    role: 'Loan',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
-    department: 'Credit Assessment & Disbursals',
-    deskNumber: 'Desk 09',
-    description: 'Appraises student education, activity, and project loan proposals, reviews collateral/guarantees, and creates repayment schedules.',
+    id: 'desk-7-anya',
+    name: 'Anya Singhal',
+    role: 'Investment Advisor',
+    department: 'Wealth Management & Financial Literacy',
+    deskNumber: 'Desk 07',
+    deskId: 7,
+    photoUrl: '/team/desk7-anya-singhal.jpg',
+    fallbackInitials: 'AS',
+    description: 'Demonstrates compounding power, inflation calculations, and structured wealth accumulation models.',
     keyResponsibilities: [
-      'Appraise loan eligibility and purpose verification',
-      'Structure transparent monthly installment schedules (EMI)',
-      'Manage loan sanction letters and disbursal accounts'
+      'Structure disciplined systematic savings plans (SIP)',
+      'Conduct portfolio health checks and yield comparisons',
+      'Assist student enterprises with surplus fund allocation'
+    ]
+  },
+
+  // Desk 8 - Loan Manager & Loan Officer
+  {
+    id: 'desk-8-kanishk',
+    name: 'Kanishk Sharma',
+    role: 'Loan Manager',
+    department: 'Credit Assessment & Disbursals',
+    deskNumber: 'Desk 08',
+    deskId: 8,
+    photoUrl: '/team/desk8-kanishk-sharma.jpg',
+    fallbackInitials: 'KS',
+    description: 'Appraises student project and activity loan applications, reviews repayment capability, and sanctions credit facilities.',
+    keyResponsibilities: [
+      'Appraise credit proposals for academic and club initiatives',
+      'Issue formal loan sanction letters and credit limits',
+      'Review monthly lending risk portfolios and recovery metrics'
     ]
   },
   {
-    id: 'role-10',
-    role: 'Credit',
-    namePlaceholder: '[STUDENT NAME]',
-    photoPlaceholder: '[STUDENT PHOTO]',
+    id: 'desk-8-naina',
+    name: 'Naina Sachdeva',
+    role: 'Loan Officer',
+    department: 'Credit Assessment & Disbursals',
+    deskNumber: 'Desk 08',
+    deskId: 8,
+    photoUrl: '/team/desk8-naina-sachdeva.jpg',
+    fallbackInitials: 'NS',
+    description: 'Prepares transparent monthly EMI repayment schedules, manages applicant documentation, and tracks loan accounts.',
+    keyResponsibilities: [
+      'Structure transparent monthly installment schedules (EMI)',
+      'Guide applicants through loan documentation and agreements',
+      'Maintain loan disbursal and periodic recovery ledgers'
+    ]
+  },
+
+  // Desk 9 - Credit Officers (2)
+  {
+    id: 'desk-9-manas',
+    name: 'Manas Arya',
+    role: 'Credit Officer',
     department: 'Risk Management & Underwriting',
-    deskNumber: 'Desk 10',
-    description: 'Assesses creditworthiness, monitors overdue repayments, maintains internal credit score metrics, and oversees overdraft limits.',
+    deskNumber: 'Desk 09',
+    deskId: 9,
+    photoUrl: '/team/desk9-manas-arya.jpg',
+    fallbackInitials: 'MA',
+    description: 'Assesses creditworthiness, calculates internal credit scorecards, and audits borrower repayment integrity.',
     keyResponsibilities: [
       'Calculate borrower credit ratings and risk scorecards',
-      'Authorize credit card and overdraft facility limits',
-      'Perform monthly audit of outstanding loan balances'
+      'Monitor overdue repayments and debt-to-income ratios',
+      'Perform monthly audit of outstanding credit lines'
+    ]
+  },
+  {
+    id: 'desk-9-aditya',
+    name: 'Aditya Arya',
+    role: 'Credit Officer',
+    department: 'Risk Management & Underwriting',
+    deskNumber: 'Desk 09',
+    deskId: 9,
+    photoUrl: '/team/desk9-aditya-arya.png',
+    fallbackInitials: 'AA',
+    description: 'Authorizes credit card and overdraft facility limits, reviews collateral guarantees, and oversees credit compliance.',
+    keyResponsibilities: [
+      'Authorize credit card and temporary overdraft limits',
+      'Appraise club event financing and sponsorship guarantees',
+      'Coordinate credit health notices and limit adjustments'
+    ]
+  },
+
+  // Desk 10 - Sales Manager (1)
+  {
+    id: 'desk-10-vikrant',
+    name: 'Vikrant Bhardwaj',
+    role: 'Sales Manager',
+    department: 'Strategic Growth & Partnerships',
+    deskNumber: 'Desk 10',
+    deskId: 10,
+    photoUrl: '/team/desk10-vikrant-bhardwaj.jpg',
+    fallbackInitials: 'VB',
+    description: 'Leads institutional banking outreach, coordinates cross-desk initiatives, organizes financial literacy campaigns, and drives account growth.',
+    keyResponsibilities: [
+      'Drive student banking adoption and account onboarding drives',
+      'Coordinate inter-desk operational workflows and promotions',
+      'Organize school-wide financial literacy events and branch visits'
     ]
   }
 ];
