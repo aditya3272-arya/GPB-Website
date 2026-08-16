@@ -1,23 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BANKING_ROLES } from '../data/bankingData';
 import { TeamMemberRole } from '../types';
 import { 
   MapPin, 
   CheckCircle, 
-  ChevronRight
+  ChevronRight 
 } from 'lucide-react';
 
 interface TeamCarouselProps {
   onSelectRole?: (role: TeamMemberRole) => void;
 }
 
+// Smart image component that automatically tries alternate extensions (.jpg, .JPG, .png, .PNG, .jpeg)
+const OfficerImage: React.FC<{
+  photoUrl?: string;
+  name: string;
+  fallbackInitials?: string;
+  className?: string;
+}> = ({ photoUrl, name, fallbackInitials, className = "w-full h-full object-cover" }) => {
+  const [currentSrc, setCurrentSrc] = useState<string | undefined>(photoUrl);
+  const [attemptIndex, setAttemptIndex] = useState<number>(0);
+  const [hasFailedAll, setHasFailedAll] = useState<boolean>(false);
+
+  // Generate list of fallback file extensions to attempt
+  const getCandidateUrls = (original?: string): string[] => {
+    if (!original) return [];
+    const basePath = original.replace(/\.(jpg|jpeg|png|webp|JPG|JPEG|PNG|WEBP)$/i, '');
+    return [
+      original,
+      `${basePath}.JPG`,
+      `${basePath}.jpg`,
+      `${basePath}.png`,
+      `${basePath}.PNG`,
+      `${basePath}.jpeg`,
+      `${basePath}.JPEG`,
+      `${basePath}.webp`
+    ];
+  };
+
+  const candidateUrls = getCandidateUrls(photoUrl);
+
+  useEffect(() => {
+    setCurrentSrc(photoUrl);
+    setAttemptIndex(0);
+    setHasFailedAll(false);
+  }, [photoUrl]);
+
+  const handleError = () => {
+    const nextIndex = attemptIndex + 1;
+    if (nextIndex < candidateUrls.length) {
+      setAttemptIndex(nextIndex);
+      setCurrentSrc(candidateUrls[nextIndex]);
+    } else {
+      setHasFailedAll(true);
+    }
+  };
+
+  if (hasFailedAll || !currentSrc) {
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center p-2 text-center bg-gradient-to-b from-slate-50 to-slate-100">
+        <div className="w-12 h-12 rounded-full bg-[#002D62] text-[#DFB748] font-extrabold text-sm flex items-center justify-center shadow-xs mb-1.5">
+          {fallbackInitials || name.substring(0, 2).toUpperCase()}
+        </div>
+        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+          Passport Photo
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={currentSrc}
+      alt={name}
+      onError={handleError}
+      className={className}
+    />
+  );
+};
+
 export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
   const [selectedRole, setSelectedRole] = useState<TeamMemberRole | null>(null);
-  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
-
-  const handleImageError = (roleId: string) => {
-    setFailedImages((prev) => ({ ...prev, [roleId]: true }));
-  };
 
   // Duplicate the array 3 times for seamless linear infinite marquee
   const duplicatedRoles = [...BANKING_ROLES, ...BANKING_ROLES, ...BANKING_ROLES];
@@ -61,9 +124,6 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
           }}
         >
           {duplicatedRoles.map((item, index) => {
-            const photoSrc = item.photoUrl;
-            const isImageFailed = failedImages[item.id] || !photoSrc;
-
             return (
               <div
                 key={`${item.id}-${index}`}
@@ -86,23 +146,11 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
 
                   {/* Student Photo Card Frame */}
                   <div className="w-28 h-32 mx-auto rounded-sm border-2 border-slate-200 bg-slate-50 group-hover:border-[#C5A059] transition-colors relative overflow-hidden mb-3.5 shadow-inner flex items-center justify-center">
-                    {!isImageFailed ? (
-                      <img
-                        src={photoSrc}
-                        alt={item.name}
-                        onError={() => handleImageError(item.id)}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center p-2 text-center bg-gradient-to-b from-slate-50 to-slate-100">
-                        <div className="w-12 h-12 rounded-full bg-[#002D62] text-[#DFB748] font-extrabold text-sm flex items-center justify-center shadow-xs mb-1.5">
-                          {item.fallbackInitials || item.name.substring(0, 2).toUpperCase()}
-                        </div>
-                        <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
-                          Passport Photo
-                        </span>
-                      </div>
-                    )}
+                    <OfficerImage
+                      photoUrl={item.photoUrl}
+                      name={item.name}
+                      fallbackInitials={item.fallbackInitials}
+                    />
                   </div>
 
                   {/* Student Name */}
@@ -169,18 +217,11 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({ onSelectRole }) => {
               {/* Officer Profile Summary */}
               <div className="flex items-center gap-4 p-3.5 bg-slate-50 rounded-sm border border-slate-200">
                 <div className="w-16 h-20 rounded-sm border border-slate-300 bg-white flex flex-col items-center justify-center text-center p-0.5 shrink-0 overflow-hidden">
-                  {!failedImages[selectedRole.id] && selectedRole.photoUrl ? (
-                    <img
-                      src={selectedRole.photoUrl}
-                      alt={selectedRole.name}
-                      onError={() => handleImageError(selectedRole.id)}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-[#002D62] text-[#DFB748] font-extrabold text-sm">
-                      {selectedRole.fallbackInitials || selectedRole.name.substring(0, 2).toUpperCase()}
-                    </div>
-                  )}
+                  <OfficerImage
+                    photoUrl={selectedRole.photoUrl}
+                    name={selectedRole.name}
+                    fallbackInitials={selectedRole.fallbackInitials}
+                  />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">
